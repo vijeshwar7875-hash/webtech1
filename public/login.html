@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in | Record Management</title>
+  <link rel="stylesheet" href="login.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="login.js"></script>
+</head>
+<body class="login-page" ng-controller="LoginController as vm">
+  <main class="login-layout">
+    <section class="login-intro">
+      <div class="brand-mark">RM</div>
+      <p class="eyebrow">PRACTICAL PROJECT</p>
+      <h1>Record<br>Management</h1>
+      <p class="intro-copy">A simple workspace to organize, update and manage your records in one place.</p>
+      <div class="intro-note"><span class="dot"></span> Organized. Clear. Easy to use.</div>
+    </section>
+
+    <section class="login-card">
+      <p class="eyebrow dark-eyebrow">WELCOME BACK</p>
+      <h2>Sign in to continue</h2>
+      <p class="login-help">Enter your account details below.</p>
+
+      <form ng-submit="vm.login()">
+        <label for="username">Username</label>
+        <input id="username" type="text" ng-model="vm.username" placeholder="Enter username" autocomplete="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" ng-model="vm.password" placeholder="Enter password" autocomplete="current-password" required>
+
+        <p class="login-error" ng-if="vm.error">{{vm.error}}</p>
+        <button class="login-submit" type="submit" ng-disabled="vm.loading">
+          {{vm.loading ? "Signing in..." : "Sign in"}}
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <div class="demo-hint"><strong>Demo credentials</strong><br>Username: admin &nbsp;·&nbsp; Password: password</div>
+      <p class="login-foot">Record Management System</p>
+    </section>
+  </main>
+</body>
+</html>

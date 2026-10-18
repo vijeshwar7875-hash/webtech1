@@ -1,0 +1,8 @@
+{
+  "name": "generic-practical-dashboard",
+  "version": "1.1.0",
+  "description": "Generic AngularJS, Express and MongoDB CRUD practical template with demo login",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.21.2", "mongoose": "^8.9.5" }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Record Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.module.js"></script>
+  <script src="recordService.js"></script>
+  <script src="recordFactory.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="MainController as vm">
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="app-brand">
+        <div class="brand-mark small-mark">RM</div>
+        <div>
+          <h1>{{vm.title}}</h1>
+          <p>{{vm.subtitle}}</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="status"><span class="status-dot"></span>{{vm.dbStatus}}</span>
+        <button class="button-light" type="button" ng-click="vm.logout()">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow dark-eyebrow">OVERVIEW</p>
+        <h2>Dashboard</h2>
+        <p class="muted">Create and maintain your records below.</p>
+      </div>
+      <div class="count-box"><span class="count-number">{{vm.records.length}}</span><span class="count-label">Total records</span></div>
+    </div>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div class="section-icon">＋</div>
+        <div>
+          <h3>{{vm.editing ? "Update record" : "Add a record"}}</h3>
+          <p>{{vm.editing ? "Change the selected record details." : "Enter the information to create a new record."}}</p>
+        </div>
+      </div>
+      <form ng-submit="vm.save()">
+        <div class="form-grid">
+          <label>{{vm.firstLabel}}
+            <input type="text" ng-model="vm.form.first" placeholder="Enter {{vm.firstLabel | lowercase}}" required>
+          </label>
+          <label>{{vm.secondLabel}}
+            <input type="text" ng-model="vm.form.second" placeholder="Enter {{vm.secondLabel | lowercase}}">
+          </label>
+          <label>{{vm.thirdLabel}}
+            <input type="text" ng-model="vm.form.third" placeholder="Enter {{vm.thirdLabel | lowercase}}">
+          </label>
+          <label>{{vm.fourthLabel}}
+            <input type="text" ng-model="vm.form.fourth" placeholder="Enter {{vm.fourthLabel | lowercase}}">
+          </label>
+        </div>
+        <div class="actions">
+          <button class="button-primary" type="submit">{{vm.editing ? "Save changes" : "Add record"}}</button>
+          <button class="button-light" type="button" ng-click="vm.reset()" ng-if="vm.editing">Cancel</button>
+          <span class="message" ng-if="vm.message">{{vm.message}}</span>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel records-panel">
+      <div class="records-heading">
+        <div>
+          <h3>{{vm.listTitle}}</h3>
+          <p>View and manage saved entries.</p>
+        </div>
+        <div class="table-tools">
+          <input class="search-input" type="search" ng-model="vm.searchText" placeholder="Search records...">
+          <button class="button-light" type="button" ng-click="vm.load()">Refresh</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th class="id-col">ID</th>
+              <th>{{vm.firstLabel}}</th>
+              <th>{{vm.secondLabel}}</th>
+              <th>{{vm.thirdLabel}}</th>
+              <th>{{vm.fourthLabel}}</th>
+              <th class="action-col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="record in vm.records | filter:vm.searchText track by record.id">
+              <td class="id-cell">{{record.id}}</td>
+              <td class="main-cell">{{record.first}}</td>
+              <td>{{record.second || "—"}}</td>
+              <td>{{record.third  || "—"}}</td>
+              <td>{{record.fourth || "—"}}</td>
+              <td class="row-actions">
+                <button type="button" class="text-button" ng-click="vm.edit(record)">Edit</button>
+                <button type="button" class="text-button delete-button" ng-click="vm.remove(record)">Delete</button>
+              </td>
+            </tr>
+            <tr ng-if="!vm.records.length">
+              <td colspan="6" class="empty-state">
+                <div class="empty-icon">▤</div>
+                <strong>No records yet</strong>
+                <span>Add your first record using the form above.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footer">Showing {{(vm.records | filter:vm.searchText).length}} record(s)</div>
+    </section>
+    <footer class="app-footer">Record Management System <span>·</span> Practical project</footer>
+  </main>
+</body>
+</html>

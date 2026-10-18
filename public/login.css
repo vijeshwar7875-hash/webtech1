@@ -1,0 +1,56 @@
+/* Minimal login page styling only. Dashboard uses style.css. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #222;
+  background: #f2f4f6;
+}
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login-layout {
+  width: 360px;
+  max-width: 100%;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.login-intro { display: none; }
+.login-card { width: 100%; }
+.eyebrow { margin: 0 0 8px; font-size: 11px; font-weight: bold; color: #315c86; }
+.login-card h2 { margin: 0 0 8px; font-size: 23px; }
+.login-help { margin: 0 0 22px; color: #666; }
+.login-card label { display: block; margin: 14px 0 6px; font-weight: bold; font-size: 13px; }
+.login-card input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: white;
+  font: inherit;
+}
+.login-card input:focus { outline: 1px solid #315c86; }
+.login-submit {
+  width: 100%;
+  margin-top: 18px;
+  padding: 10px;
+  border: 1px solid #315c86;
+  border-radius: 3px;
+  background: #315c86;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+.login-submit:hover { background: #264966; }
+.login-submit span { display: none; }
+.login-error { color: #b00020; font-size: 12px; }
+.demo-hint { margin-top: 16px; padding: 10px; border: 1px solid #ddd; background: #f7f7f7; color: #555; font-size: 12px; line-height: 1.7; }
+.login-foot { margin: 20px 0 0; padding-top: 12px; border-top: 1px solid #eee; color: #777; text-align: center; font-size: 11px; }
