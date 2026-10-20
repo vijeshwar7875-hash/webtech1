@@ -1,0 +1,30 @@
+
+<xsl:import href="student.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<students>
+    <student>
+        <id>1</id>
+        <name>John Doe</name>
+        <age>20</age>
+        <major>Computer Science</major>
+    </student>
+    <student>
+        <id>2</id>
+        <name>Jane Smith</name>
+        <age>22</age>
+        <major>Mathematics</major>
+    </student>
+    <student>
+        <id>3</id>
+        <name>Emily Johnson</name>
+        <age>21</age>
+        <major>Biology</major>
+    </student>
+    <student>
+        <id>4</id>
+        <name>Michael Brown</name>
+        <age>23</age>
+        <major>Physics</major>
+    </student>
+</students>

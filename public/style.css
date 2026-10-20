@@ -1,98 +1,394 @@
-/* Generic practical project CSS. Both login.html and index.html load this file. */
-* { box-sizing: border-box; }
-body { margin: 0; font: 14px Arial, sans-serif; color: #263445; background: #f3f5f8; }
-button, input { font: inherit; }
-button { cursor: pointer; }
-.brand-mark { width: 42px; height: 42px; display: grid; place-items: center; background: #315c86; color: #fff; border-radius: 5px; font-weight: bold; }
-.small-mark { width: 36px; height: 36px; }
-/* LOGIN PAGE */
-.login-page { min-height: 100vh; display: grid; place-items: center; padding: 20px; }
-.login-layout { width: min(760px, 100%); display: grid; grid-template-columns: 1fr 1fr; background: #fff; border: 1px solid #d7dee7; border-radius: 7px; overflow: hidden; }
-.login-intro { padding: 30px; background: #315779; color: #fff; }
-.login-intro .brand-mark { background: #fff; color: #315779; }
-.eyebrow { margin: 25px 0 8px; font-size: 11px; font-weight: bold; letter-spacing: 1px; }
-.login-intro h1 { margin: 0 0 12px; font-size: 28px; line-height: 1.2; }
-.intro-copy { line-height: 1.6; color: #e5edf5; }
-.intro-note { margin-top: 35px; font-size: 12px; }
-.dot { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: #9bd0aa; }
-.login-card { padding: 34px 30px; }
-.dark-eyebrow { color: #315c86; }
-.login-card h2 { margin: 0 0 8px; font-size: 23px; }
-.login-help { margin: 0 0 22px; color: #667085; }
-.login-card label { display: block; margin: 0 0 14px; font-size: 12px; font-weight: bold; }
-input { display: block; width: 100%; margin-top: 6px; padding: 10px; border: 1px solid #cbd3dd; border-radius: 4px; background: #fff; color: #263445; }
-input:focus { outline: 1px solid #315c86; border-color: #315c86; }
-.login-submit { width: 100%; display: flex; justify-content: space-between; padding: 10px 12px; color: #fff; background: #315c86; border: 1px solid #315c86; border-radius: 4px; font-weight: bold; }
-.login-submit:hover, .button-primary:hover { background: #274a6b; }
-.login-error { color: #a22; font-size: 12px; }
-.demo-hint { margin-top: 16px; padding: 10px; background: #f6f8fa; border: 1px solid #dce2e9; border-radius: 4px; color: #555; font-size: 11px; line-height: 1.7; }
-.login-foot { margin: 20px 0 0; padding-top: 12px; border-top: 1px solid #ddd; color: #777; text-align: center; font-size: 11px; }
-/* DASHBOARD HEADER */
-.app-header { background: #fff; border-bottom: 1px solid #dce2e9; }
-.header-inner { max-width: 1000px; margin: auto; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.app-brand { display: flex; align-items: center; gap: 10px; }
-.app-brand h1 { margin: 0 0 3px; font-size: 20px; }
-.app-brand p { margin: 0; color: #667085; font-size: 12px; }
-.header-actions { display: flex; align-items: center; gap: 8px; }
-.status { padding: 7px 9px; border: 1px solid #dce2e9; border-radius: 4px; background: #fafbfc; color: #444; font-size: 11px; }
-.status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: #39956a; }
-/* DASHBOARD CONTENT */
-.dashboard { width: min(1000px, 100%); margin: auto; padding: 24px 20px; }
-.page-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
-.page-heading h2 { margin: 0 0 4px; font-size: 24px; }
-.muted { margin: 0; color: #667085; }
-.count-box { display: flex; flex-direction: column; min-width: 110px; padding: 9px 12px; background: #fff; border: 1px solid #dce2e9; border-radius: 5px; }
-.count-number { font-size: 22px; font-weight: bold; }
-.count-label { color: #667085; font-size: 11px; }
-.panel { margin-bottom: 16px; padding: 18px; background: #fff; border: 1px solid #dce2e9; border-radius: 5px; }
-.panel-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-.section-icon { width: 30px; height: 30px; display: grid; place-items: center; background: #f0f4f8; border: 1px solid #d9e1e8; border-radius: 4px; color: #315c86; }
-.panel h3, .records-heading h3 { margin: 0; font-size: 16px; }
-.panel-heading p, .records-heading p { margin: 3px 0 0; color: #667085; font-size: 12px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.form-grid label { font-size: 12px; font-weight: bold; }
-.actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-.button-primary, .button-light { padding: 9px 12px; border-radius: 4px; font-size: 12px; }
-.button-primary { background: #315c86; color: #fff; border: 1px solid #315c86; font-weight: bold; }
-.button-light { background: #fff; color: #333; border: 1px solid #cbd3dd; }
-.button-light:hover { background: #f3f5f7; }
-.message { color: #555; font-size: 12px; }
-/* RECORDS TABLE */
-.records-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 15px; }
-.table-tools { display: flex; align-items: center; gap: 8px; }
-.search-input { width: 210px; margin: 0; font-size: 12px; }
-.table-wrap { overflow-x: auto; border: 1px solid #dce2e9; border-radius: 4px; }
-table { width: 100%; border-collapse: collapse; text-align: left; background: #fff; }
-th, td { padding: 11px; border-bottom: 1px solid #e5e8ed; }
-th { background: #f6f8fa; color: #536174; font-size: 11px; text-transform: uppercase; }
-tbody tr:last-child td { border-bottom: 0; }
-tbody tr:hover { background: #fafbfd; }
-.id-col { width: 60px; }
-.action-col { width: 140px; }
-.id-cell { color: #667085; }
-.main-cell { font-weight: bold; }
-.row-actions { white-space: nowrap; }
-.text-button { padding: 3px 5px; border: 0; background: transparent; color: #315c86; font-size: 12px; }
-.text-button:hover { text-decoration: underline; }
-.delete-button { margin-left: 6px; color: #a22; }
-.empty-state { padding: 25px 10px; text-align: center; color: #667085; }
-.empty-state strong, .empty-state span { display: block; }
-.empty-state strong { margin: 5px 0; color: #333; }
-.empty-state span { font-size: 12px; }
-.empty-icon { font-size: 22px; color: #8794a5; }
-.table-footer { padding-top: 10px; color: #667085; font-size: 11px; }
-.app-footer { padding: 10px 0; color: #778191; text-align: center; font-size: 11px; }
-/* RESPONSIVE LAYOUT */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font: 14px Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.brand-mark {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: #315c86;
+    color: white;
+}
+
+.small-mark {
+    width: 36px;
+    height: 36px;
+}
+
+/* Login */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+}
+
+.login-layout {
+    width: min(650px, 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+}
+
+.login-intro {
+    padding: 20px;
+    background: #315c86;
+    color: white;
+}
+
+.login-intro .brand-mark {
+    background: white;
+    color: #315c86;
+}
+
+.eyebrow, .dark-eyebrow {
+    font-size: 11px;
+}
+
+.login-intro h1 {
+    font-size: 25px;
+}
+
+.intro-copy {
+    line-height: 1.5;
+}
+
+.intro-note {
+    font-size: 12px;
+}
+
+.dot, .status-dot {
+    color: green;
+}
+
+.login-card {
+    padding: 25px;
+}
+
+.login-help, .muted {
+    color: #666;
+}
+
+.login-card label, .form-grid label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 9px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #315c86;
+    box-shadow: 0 0 4px rgba(49, 92, 134, 0.25);
+}
+
+.login-submit, .button-primary {
+    padding: 10px;
+    background: #315c86;
+    color: white;
+    border: none;
+}
+
+.login-submit {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-error, .delete-button {
+    color: red;
+}
+
+.demo-hint {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f5f5f5;
+    font-size: 11px;
+}
+
+.login-foot {
+    margin-top: 20px;
+    text-align: center;
+    color: #777;
+}
+
+/* Header */
+
+.app-header, .panel, .count-box {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.panel {
+    transition: box-shadow 0.2s ease;
+}
+
+.panel:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.header-inner, .app-brand, .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-inner {
+    max-width: 1000px;
+    margin: auto;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+.app-brand h1, .app-brand p {
+    margin: 3px 0;
+}
+
+.app-brand p, .panel-heading p, .records-heading p {
+    color: #666;
+    font-size: 12px;
+}
+
+.status {
+    padding: 7px;
+    border: 1px solid #ddd;
+}
+
+/* Dashboard */
+
+.dashboard {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.page-heading, .panel-heading, .records-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.page-heading {
+    margin-bottom: 15px;
+}
+
+.page-heading h2 {
+    margin: 0;
+}
+
+.count-box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.count-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.count-number {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.count-label, .message {
+    color: #666;
+    font-size: 12px;
+}
+
+.panel {
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+.section-icon {
+    padding: 8px;
+    background: #eee;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.actions, .table-tools {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.button-light {
+    padding: 9px;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+/* Table */
+
+.search-input {
+    width: 200px;
+    margin: 0;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+th {
+    background: #eee;
+}
+
+.id-col {
+    width: 60px;
+}
+
+.action-col {
+    width: 140px;
+}
+
+.id-cell {
+    color: #666;
+}
+
+.main-cell {
+    font-weight: bold;
+}
+
+.row-actions {
+    white-space: nowrap;
+}
+
+.text-button {
+    border: none;
+    background: none;
+    color: #315c86;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.text-button:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.text-button.delete-button:hover {
+    color: #d32f2f;
+}
+
+.empty-state {
+    padding: 20px;
+    text-align: center;
+}
+
+.empty-state strong, .empty-state span {
+    display: block;
+}
+
+.empty-icon {
+    font-size: 20px;
+}
+
+.table-footer, .app-footer {
+    padding: 10px;
+    color: #666;
+    font-size: 11px;
+}
+
+.app-footer {
+    text-align: center;
+}
+
+/* Mobile */
+
 @media (max-width: 620px) {
-  .login-layout { grid-template-columns: 1fr; }
-  .login-intro, .login-card { padding: 25px; }
-  .login-intro .eyebrow { margin-top: 20px; }
-  .intro-note { margin-top: 20px; }
-  .header-inner { align-items: flex-start; flex-direction: column; }
-  .header-actions { width: 100%; justify-content: space-between; }
-  .dashboard { padding: 20px 12px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .records-heading { align-items: stretch; flex-direction: column; }
-  .table-tools { align-items: stretch; }
-  .search-input { width: 100%; }
+    .login-layout, .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-inner, .records-heading {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dashboard {
+        padding: 10px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+}
+
+/* Page animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.panel, .count-box {
+    animation: fadeIn 0.4s ease-in;
 }

@@ -6,6 +6,7 @@
   <title>Record Management</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
   <script src="app.module.js"></script>
   <script src="recordService.js"></script>
   <script src="recordFactory.js"></script>
@@ -47,6 +48,7 @@
         </div>
       </div>
       <form ng-submit="vm.save()">
+     
         <div class="form-grid">
           <label>{{vm.firstLabel}}
             <input type="text" ng-model="vm.form.first" placeholder="Enter {{vm.firstLabel | lowercase}}" required>
@@ -64,7 +66,7 @@
         <div class="actions">
           <button class="button-primary" type="submit">{{vm.editing ? "Save changes" : "Add record"}}</button>
           <button class="button-light" type="button" ng-click="vm.reset()" ng-if="vm.editing">Cancel</button>
-          <span class="message" ng-if="vm.message">{{vm.message}}</span>
+          <span class="message" ng-show="vm.message">{{vm.message}}</span>
         </div>
       </form>
     </section>

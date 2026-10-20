@@ -1,10 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const dns = require("dns");
+
+// Ensures Atlas SRV records resolve cleanly even on college/ISP routers
+try { dns.setServers(["8.8.8.8", "1.1.1.1"]); } catch (e) {}
 
 const app = express();
 const PORT = 5210;
-const MONGO_URL = "mongodb://127.0.0.1:27017/practicaldb";
+
+// Toggle between Local and Atlas Backup:
+//const MONGO_URL = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/practicaldb"; // Local
+// To switch to Atlas Backup directly, swap with the line below:
+//const MONGO_URL = "mongodb+srv://vijeshwar_db_user:B3sIwf1kGnpOHYfI@cluster0.yzrgyr4.mongodb.net/webtech?retryWrites=true&w=majority";
+//for amaresh
+const MONGO_URL = "mongodb+srv://amaresh_db_user:86ViVzoPt5xKOKTh@cluster0.bpcemrt.mongodb.net/WebTech?retryWrites=true&w=majority";
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
